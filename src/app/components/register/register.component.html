@@ -4,7 +4,7 @@
     
       <h1>Register here</h1>
     
-      <form formGroup="registerFormGroup" (ngSubmit)="registerUser()">
+      <form [formGroup]="registerFormGroup" (ngSubmit)="registerUser()">
     
         <label for="username">Username</label>
         <input pInputText id="username" type="text" placeholder="Enter username"/>
@@ -12,8 +12,8 @@
         <label for="password">Password</label>
         <input pPassword id="password" type="password" placeholder="Enter your password"/>
 
-        <label for="password">Confirm Password</label>
-        <input pPassword id="password" type="password" placeholder="Confirm your password"/>
+        <label for="confirmPassword">Confirm Password</label>
+        <input pPassword id="confirmPassword" type="password" placeholder="Confirm your password"/>
     
         <button pButton id="Register" type="submit" label="Register" class="p-button-rounded"></button>
     
