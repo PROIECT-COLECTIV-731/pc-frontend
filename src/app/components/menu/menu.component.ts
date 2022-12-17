@@ -53,7 +53,6 @@ export class MenuComponent implements OnInit {
     if (this.ref) {
       this.ref.close();
     }
-    localStorage.removeItem('email')
   }
 
   goToUpdate() {
@@ -62,7 +61,7 @@ export class MenuComponent implements OnInit {
   }
 
   showReport() {
-    //TODO : create show report component
+    this.router.navigate(['/report']);
   }
 
   goToAdd() {

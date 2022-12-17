@@ -11,7 +11,12 @@ import { MenuComponent } from './components/menu/menu.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {ButtonModule} from 'primeng/button';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -24,6 +29,8 @@ import {CommonModule} from "@angular/common";
 import {PaginatorModule} from "primeng/paginator";
 import {OrderListModule} from "primeng/orderlist";
 import { AppRoutingModule } from './app-routing.module';
+import {ReportComponent} from "./components/report/report.component";
+import {SearchBarComponent} from "./components/report/search-bar/search-bar.component";
 
 
 @NgModule({
@@ -32,6 +39,8 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     RegisterComponent,
     MenuComponent,
+    ReportComponent,
+    SearchBarComponent,
   BookTableComponent
   ],
   imports: [
@@ -50,6 +59,12 @@ import { AppRoutingModule } from './app-routing.module';
     PaginatorModule,
     AppRoutingModule,
 
+    FormsModule,
+    MatIconModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    MatFormFieldModule
   ],
   exports: [
     RouterModule
