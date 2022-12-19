@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       Validators.pattern("^(?=.*?[A-Z])[a-z]*(?=.*?[0-9])[#?!@$%^&*-]*.{5,}$")]],
   })
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private router : Router) {
+  constructor(private userService: UserService, private formBuilder: UntypedFormBuilder, private router : Router) {
   }
 
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     return this._loginFormGroup.get('password')
   }
 
-  get loginFormGroup(): FormGroup {
+  get loginFormGroup(): UntypedFormGroup {
     return this._loginFormGroup;
   }
 

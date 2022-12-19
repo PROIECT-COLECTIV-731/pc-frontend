@@ -9,7 +9,6 @@ import { MenuComponent } from './components/menu/menu.component';
 
 import {PasswordModule} from 'primeng/password';
 
-import {ButtonModule} from 'primeng/button';
 import {ReactiveFormsModule} from "@angular/forms";
 
 
@@ -40,6 +39,7 @@ import { CategoryService } from './components/category/service/category.service'
 import { HttpClientModule } from '@angular/common/http';
 import { DomainService } from './components/domain/service/domain.service';
 import { PublisherService } from './components/publisher/service/publisher.service';
+import { BookDetailsComponent } from './components/menu/book-details/book-details.component';
 
 
 @NgModule({
@@ -53,7 +53,8 @@ import { PublisherService } from './components/publisher/service/publisher.servi
 
     MenuComponent,
   BookTableComponent,
-  LinkViewerComponent
+  LinkViewerComponent,
+  BookDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,8 +83,8 @@ import { PublisherService } from './components/publisher/service/publisher.servi
     CategoryService,
     DomainService,
     PublisherService,
+    DialogService
   ],
-  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

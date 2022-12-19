@@ -6,6 +6,7 @@ import {BackendService} from "../../services/backend.service";
 import {HttpClient, HttpHandler} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
+import { BookDetailsComponent } from './book-details/book-details.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -64,5 +65,13 @@ export class MenuComponent implements OnInit {
 
   goToAdd() {
     //TODO: create add component
+    // This code should run after adding (needs to be moved)
+    window.alert("The book has been added!");
+    this.ref = this.dialogService.open(BookDetailsComponent, {
+      header: 'Book details',
+      width: '70%',
+      // Data is hard coded for demonstration purposes only
+      data: {book: {"title": "title", "numberOfStudents": "1"}}
+    });
   }
 }
