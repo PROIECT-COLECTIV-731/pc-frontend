@@ -1,0 +1,10 @@
+<h2>Add new Publisher</h2>
+<br>
+<span class="p-float-label">
+    <input id="float-input" type="text" pInputText [(ngModel)]="title"> 
+    <label for="float-input">Publisher Name</label>
+</span>
+<br>
+<button pButton pRipple type="button" label="Add Publisher"  styleClass="p-button-sm" (click)="addPublisher(title)"></button>
+<p style="color: red;">{{error!=undefined?error:''}}</p>
+<p style="color: green;">{{success!=undefined?success:''}}</p>

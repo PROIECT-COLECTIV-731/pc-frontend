@@ -3,8 +3,7 @@
   <div class="button-wrapper">
 
     <button pButton pRipple class="p-button-raised" type="button" label="Add book" icon="pi pi-plus" *ngIf="this.isAdmin" (click)="goToAdd()"></button>
-    <button pButton pRipple class="p-button-raised " type="button" label="See the report" *ngIf="this.isAdmin" (click)="showReport()"></button>
-    <button pButton pRipple class="p-button-raised " type="button" label="Borrow book" icon="pi pi-book" *ngIf="this.isAdmin" (click)="goToUpdate()"></button>
-    <button pButton pRipple class="p-button-raised " type="button" label ="Available books"  *ngIf="this.isStudent || this.isAdmin"(click)="showBooksDialog()"></button>
+    <button pButton pRipple class="p-button-raised " type="button" label="Borrow book" icon="pi pi-book" *ngIf="this.isAdmin || this.isStudent" (click)="goToUpdate()"></button>
+    <button pButton pRipple class="p-button-raised " type="button" label ="Book/Student Report"  *ngIf="this.isAdmin"(click)="showBooksDialog()"></button>
   </div>
 </div>

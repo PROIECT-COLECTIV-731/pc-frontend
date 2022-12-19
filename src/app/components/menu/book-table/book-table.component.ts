@@ -1,24 +1,31 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {BookTableService} from "../../../services/book-table.service";
 import {BookTable} from "../../../shared/data-type/BookTable";
 import {Subscription} from "rxjs";
-import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
+import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
+import { LinkViewerComponent } from './link-viewer/link-viewer.component';
 
 @Component({
   selector: 'app-book-table',
   templateUrl: './book-table.component.html',
   styleUrls: ['./book-table.component.css']
 })
-export class BookTableComponent implements OnInit {
+export class BookTableComponent implements OnInit  {
 
   books:BookTable[]=[];
   first = 0;
   rows = 5;
   totalRecords=0;
+  link = 'https://drive.google.com/file/d/0Byd9s-7-NCIiUzM5WW9ReGxEQ2s/preview';
 
 
 
-  constructor(private bookTableService:BookTableService,public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
+  constructor(private bookTableService:BookTableService,public ref: DynamicDialogRef, public config: DynamicDialogConfig,
+    public dialogService: DialogService) { }
+
+
+    
+  @ViewChild(LinkViewerComponent) child!:LinkViewerComponent;
 
   ngOnInit(): void {
     console.log("ceva")
@@ -44,6 +51,10 @@ export class BookTableComponent implements OnInit {
   }
   reset() {
     this.first = 0;
+  }
+
+  ngOnChanges(){
+
   }
 
 }

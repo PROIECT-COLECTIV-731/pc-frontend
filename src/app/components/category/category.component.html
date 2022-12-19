@@ -1,0 +1,10 @@
+<h2>Add new Category</h2>
+<br>
+<span class="p-float-label">
+    <input id="float-input" type="text" pInputText [(ngModel)]="title"> 
+    <label for="float-input">Category Name</label>
+</span>
+<br>
+<button pButton pRipple type="button" label="Add Category"  styleClass="p-button-sm" (click)="addCategory(title)"></button>
+<p style="color: red;">{{error!=undefined?error:''}}</p>
+<p style="color: green;">{{success!=undefined?success:''}}</p>

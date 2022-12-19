@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {UserCredentials} from "../../shared/data-type/UserCredentials";
 import {ConfirmedValidator} from "./confirmedValidator";
 import {Router} from "@angular/router";
@@ -37,10 +37,10 @@ export class RegisterComponent implements OnInit {
     return this._registerFormGroup.get('confirmPassword')
   }
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private router : Router) {
+  constructor(private userService: UserService, private formBuilder: UntypedFormBuilder, private router : Router) {
   }
 
-  get registerFormGroup(): FormGroup {
+  get registerFormGroup(): UntypedFormGroup {
     return this._registerFormGroup;
   }
 
