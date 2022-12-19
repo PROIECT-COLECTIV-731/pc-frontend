@@ -54,12 +54,15 @@ export class MenuComponent implements OnInit {
     if (this.ref) {
       this.ref.close();
     }
-    localStorage.removeItem('email')
   }
 
   goToUpdate() {
     //TODO: link to actual updating component
     //this.router.navigate(['update-component'])
+  }
+
+  showReport() {
+    this.router.navigate(['/report']);
   }
 
 

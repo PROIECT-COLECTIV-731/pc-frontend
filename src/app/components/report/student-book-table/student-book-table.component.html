@@ -1,0 +1,11 @@
+<h2 style="text-align:center">Books for user with username {{data.username}}</h2>
+<div *ngFor = "let book of books" class="group">
+  <p><b>ISBN :</b>{{book.isbn}}</p>
+  <p><b>Author :</b> {{book.author}}</p>
+  <p><b>Title :</b> {{book.title}}</p>
+  <p><b>Publication Year :</b> {{book.publicationYear}}</p>
+  <p><b>Domain :</b> {{book.domain}}</p>
+  <p><b>Publisher :</b> {{book.publisher}}</p>
+  <p><b>Summary :</b> {{book.summary}}</p>
+  <p><b>Ranking :</b> {{book.ranking}}</p>
+</div>
