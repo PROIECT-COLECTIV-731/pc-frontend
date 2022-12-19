@@ -9,6 +9,8 @@
 
   <div class="button-wrapper">
     <button pButton pRipple class="p-button-raised " type="button" label="See book/student report"  *ngIf="this.isStudent || this.isAdmin" (click)="showBookStudentDialog()"></button>
-    <app-search-bar (onSelectedOption)="onSelectedOption($event)"></app-search-bar>
   </div>
+
+  <app-search-bar (onSelectedOption)="onSelectedOption($event)"></app-search-bar>
+
 </div>

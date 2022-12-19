@@ -19,6 +19,7 @@ export class StudentService {
 
 
   getStudents(): Observable<Student[]>{
+    // this.http.get<Student[]>(this.postUrl).subscribe(students => { console.log(students)});
     return this.http.get<Student[]>(this.postUrl);
   }
 
@@ -41,7 +42,6 @@ export class StudentService {
       filteredStudentsList.push(noSuchStudent);
     }
 
-    console.log(filteredStudentsList);
     return filteredStudentsList;
   }
 }

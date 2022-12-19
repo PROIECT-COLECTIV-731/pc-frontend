@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef,EventEmitter,Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
 import {Student} from "../../../shared/data-type/Student";
 import {StudentService} from "../../../services/student.service";
 
@@ -27,7 +27,6 @@ export class SearchBarComponent implements OnInit {
   ngOnInit() {
     this.studentService.getStudents().subscribe(students => {
       this.allStudents = students
-
     });
 
     this.myControl.valueChanges.subscribe(userInput => {
@@ -36,25 +35,24 @@ export class SearchBarComponent implements OnInit {
   }
 
   private autoCompleteExpenseList(input: any) {
-    let categoryList = this.filterCategoryList(input)
-    this.autoCompleteList = categoryList;
+    this.autoCompleteList = this.filterCategoryList(input);
   }
 
   filterCategoryList(val: any) {
-    var categoryList = []
+    let categoryList = []
     if (typeof val != "string") {
       return [];
     }
     if (val === '' || val === null) {
       return [];
     }
+
     return val ? this.allStudents.filter(s => s.username.toLowerCase().indexOf(val.toLowerCase()) != -1)
       : this.allStudents;
   }
 
   displayFn(student: Student) {
-    // let k = student ? student.username : student;
-    return student.username;
+    return student == null ? "" : student.username;
   }
 
   filterPostList(event:any) {
@@ -63,8 +61,6 @@ export class SearchBarComponent implements OnInit {
           this.studentService.searchOption=[]
         }
         else {
-          console.log("not")
-
             // @ts-ignore
           this.studentService.searchOption.push(students);
             this.onSelectedOption.emit(this.studentService.searchOption)

@@ -17,7 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 
 
 import {BookTableComponent} from "./components/menu/book-table/book-table.component";
@@ -31,6 +31,8 @@ import {OrderListModule} from "primeng/orderlist";
 import { AppRoutingModule } from './app-routing.module';
 import {ReportComponent} from "./components/report/report.component";
 import {SearchBarComponent} from "./components/report/search-bar/search-bar.component";
+import {StudentService} from "./services/student.service";
+import {StudentBookTableComponent} from "./components/report/student-book-table/student-book-table.component";
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import {SearchBarComponent} from "./components/report/search-bar/search-bar.comp
     MenuComponent,
     ReportComponent,
     SearchBarComponent,
-  BookTableComponent
+    StudentBookTableComponent,
+    BookTableComponent
   ],
   imports: [
     BrowserModule,
@@ -64,12 +67,19 @@ import {SearchBarComponent} from "./components/report/search-bar/search-bar.comp
     MatInputModule,
     MatAutocompleteModule,
     MatChipsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+
+    MatDialogModule
   ],
   exports: [
     RouterModule
   ],
-  providers: [DialogService],
+  providers: [
+    DialogService,
+    StudentService,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
