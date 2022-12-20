@@ -19,7 +19,6 @@ import {RippleModule} from "primeng/ripple";
 import {DialogService, DynamicDialogModule} from "primeng/dynamicdialog";
 import {CommonModule} from "@angular/common";
 import {PaginatorModule} from "primeng/paginator";
-import {OrderListModule} from "primeng/orderlist";
 import { AppRoutingModule } from './app-routing.module';
 import { LinkViewerComponent } from './components/menu/book-table/link-viewer/link-viewer.component';
 
@@ -40,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DomainService } from './components/domain/service/domain.service';
 import { PublisherService } from './components/publisher/service/publisher.service';
 import { BookDetailsComponent } from './components/menu/book-details/book-details.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 
 @NgModule({
@@ -54,7 +54,8 @@ import { BookDetailsComponent } from './components/menu/book-details/book-detail
     MenuComponent,
   BookTableComponent,
   LinkViewerComponent,
-  BookDetailsComponent
+  BookDetailsComponent,
+  AddBookComponent
   ],
   imports: [
     BrowserModule,
