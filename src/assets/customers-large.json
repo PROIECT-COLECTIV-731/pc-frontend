@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "ISBN": 1000,
+      "author": "James Butt",
+      "title": "Benton, John B Jr",
+      "publicationYear": 2015,
+      "domain": "unqualified",
+      "publisher": "pinguin",
+      "summary": "fghj",
+      "ranking": 5,
+      "link": "https.fgh"
+    },
+    {
+      "ISBN": 1002,
+      "author": "James Butt",
+      "title": "Benton, John B Jr",
+      "publicationYear": 2015,
+      "domain": "unqualified",
+      "publisher": "pinguin",
+      "summary": "fghj",
+      "ranking": 5,
+      "link": "https.fgh"
+    },
+    {
+      "ISBN": 1003,
+      "author": "James Butt",
+      "title": "Benton, John B Jr",
+      "publicationYear": 2015,
+      "domain": "unqualified",
+      "publisher": "pinguin",
+      "summary": "fghj",
+      "ranking": 5,
+      "link": "https.fgh"
+    }
+  ]
+}

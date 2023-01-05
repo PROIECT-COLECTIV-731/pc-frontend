@@ -1,0 +1,129 @@
+<div class="app">
+  <div class="topbar p-shadow-2 p-p-2"></div>
+  <div class="content p-p-4 content">
+    <p-table #dt1 [value]="books" dataKey="ISBN" [rows]="10" [showCurrentPageReport]="true"
+             [rowsPerPageOptions]="[10,25,50]"
+             styleClass="p-datatable-books p-datatable-gridlines"
+             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+             [globalFilterFields]="['title', 'domains', 'publishers']">
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+			<span class="p-input-icon-left p-ml-auto">
+         <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+                       placeholder="Search keyword"/>
+            </span>
+          <p-button label="Add book"></p-button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Title
+              <p-columnFilter type="text" field="title" display="menu"></p-columnFilter>
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Domain
+              <p-columnFilter field="domains" matchMode="in" display="menu" [showMatchModes]="false"
+                              [showOperator]="false" [showAddButton]="false">
+                <ng-template pTemplate="header">
+                  <div class="p-px-3 p-pt-3 p-pb-0">
+                    <span class="p-text-bold">Domain Picker</span>
+                  </div>
+                </ng-template>
+                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                  <p-multiSelect [ngModel]="value" [options]="domains" placeholder="Select a domain"
+                                 (onChange)="filter($event.value)" [showClear]="true">
+                    <ng-template let-option pTemplate="item">
+                      <div class="p-multiselect-representative-option">
+                        <span class="p-ml-1">{{option.name}}</span>
+                      </div>
+                    </ng-template>
+                  </p-multiSelect>
+                </ng-template>
+              </p-columnFilter>
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Publisher
+              <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false"
+                              [showOperator]="false" [showAddButton]="false">
+                <ng-template pTemplate="header">
+                  <div class="p-px-3 p-pt-3 p-pb-0">
+                    <span class="p-text-bold">Agent Picker</span>
+                  </div>
+                </ng-template>
+                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                  <p-multiSelect [ngModel]="value" [options]="publishers" placeholder="Any"
+                                 (onChange)="filter($event.value)" optionLabel="name">
+                    <ng-template let-option pTemplate="item">
+                      <div class="p-multiselect-representative-option">
+                        <span class="p-ml-1">{{option.name}}</span>
+                      </div>
+                    </ng-template>
+                  </p-multiSelect>
+                </ng-template>
+              </p-columnFilter>
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Details
+            </div>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-book>
+        <tr>
+          <td>
+            {{book.title}}
+          </td>
+          <td>
+            <span class="image-text">{{book.domain.name}}</span>
+          </td>
+          <td>
+            <span class="image-text">{{book.publisher.name}}</span>
+          </td>
+          <td class="p-text-center">
+            <p-button (click)="showMaximizableDialog(book)"  icon="pi pi-external-link" label="Details"></p-button>
+<!--            <p-dialog header='{{book.title}}' [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '50vw'}"-->
+<!--                      [maximizable]="true" [baseZIndex]="10000"-->
+<!--                      [draggable]="false" [resizable]="false">-->
+<!--              <div style="float:left;margin: 40px;">-->
+<!--                <h5>Author</h5>-->
+<!--                <p>{{book.author}}</p>-->
+<!--                <h5>ISBN</h5>-->
+<!--                <p>{{book.isbn}}</p>-->
+<!--                <h5>Publication Year</h5>-->
+<!--                <p>{{book.publicationYear}}</p>-->
+<!--              </div>-->
+
+<!--              <div style="float: right;margin-top: 40px; margin-right: 300px">-->
+<!--                <h5>Summary</h5>-->
+<!--                <p>{{book.summary}}</p>-->
+<!--                <h5>Ranking</h5>-->
+<!--                <p>{{book.ranking}}</p>-->
+<!--              </div>-->
+
+<!--              &lt;!&ndash;              <p-rating [ngModel]="5" readonly="true" stars="5" [cancel]="false"></p-rating>&ndash;&gt;-->
+<!--              <ng-template pTemplate="footer">-->
+<!--                <p-button (click)="displayMaximizable=false" label="Modify" class="p-button-text"></p-button>-->
+<!--                <p-button (click)="displayMaximizable=false" label="Lend"></p-button>-->
+<!--              </ng-template>-->
+<!--            </p-dialog>-->
+
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No books found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
