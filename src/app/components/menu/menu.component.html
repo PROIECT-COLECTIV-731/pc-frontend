@@ -5,5 +5,6 @@
     <button pButton pRipple class="p-button-raised" type="button" label="Add book" icon="pi pi-plus" *ngIf="this.isAdmin" (click)="goToAdd()"></button>
     <button pButton pRipple class="p-button-raised " type="button" label="Borrow book" icon="pi pi-book" *ngIf="this.isAdmin || this.isStudent" (click)="goToUpdate()"></button>
     <button pButton pRipple class="p-button-raised " type="button" label ="Book/Student Report"  *ngIf="this.isAdmin"(click)="showBooksDialog()"></button>
+    <button pButton type="button" id="logout" [routerLink]="'/login'">Logout</button>
   </div>
 </div>
