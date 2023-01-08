@@ -77,4 +77,8 @@ export class MenuComponent implements OnInit {
       data: {book: {"title": "title", "numberOfStudents": "1"}}
     });
   }
+
+  goToBooks() {
+    this.router.navigate(['/books']);
+  }
 }

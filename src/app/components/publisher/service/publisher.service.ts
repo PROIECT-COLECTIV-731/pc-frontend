@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BackendService } from 'src/backend/backend.service';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,8 @@ export class PublisherService {
     catch (Exception) {
       return 'error'
     }
+  }
+  public readPublishers(): Observable<any> {
+    return this.backend.get("http://localhost:8080/publisher/publishers");
   }
 }
