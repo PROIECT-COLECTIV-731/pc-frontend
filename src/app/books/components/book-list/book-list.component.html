@@ -1,5 +1,7 @@
 <div class="app">
-  <div class="topbar p-shadow-2 p-p-2"></div>
+  <div class="topbar p-shadow-2 p-p-2">
+    <p>Books</p>
+  </div>
   <div class="content p-p-4 content">
     <p-table #dt1 [value]="books" dataKey="ISBN" [rows]="10" [showCurrentPageReport]="true"
              [rowsPerPageOptions]="[10,25,50]"
@@ -13,7 +15,7 @@
                 <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
                        placeholder="Search keyword"/>
             </span>
-          <p-button label="Add book" *ngIf="this.isAdmin"(click)="addBook()"></p-button>
+          <p-button  label="Add book" *ngIf="this.isAdmin"(click)="addBook()"></p-button>
         </div>
       </ng-template>
       <ng-template pTemplate="header">
@@ -31,7 +33,7 @@
                               [showOperator]="false" [showAddButton]="false">
                 <ng-template pTemplate="header">
                   <div class="p-px-3 p-pt-3 p-pb-0">
-                    <span class="p-text-bold">Agent Picker</span>
+                    <span class="p-text-bold">Domain Picker</span>
                   </div>
                 </ng-template>
                 <ng-template pTemplate="filter" let-value let-filter="filterCallback">
@@ -54,7 +56,7 @@
                               [showOperator]="false" [showAddButton]="false">
                 <ng-template pTemplate="header">
                   <div class="p-px-3 p-pt-3 p-pb-0">
-                    <span class="p-text-bold">Agent Picker</span>
+                    <span class="p-text-bold">Publisher Picker</span>
                   </div>
                 </ng-template>
                 <ng-template pTemplate="filter" let-value let-filter="filterCallback">
@@ -88,7 +90,7 @@
             <span class="image-text">{{book.publisher.name}}</span>
           </td>
           <td class="p-text-center">
-            <p-button (click)="showMaximizableDialog(book)"  icon="pi pi-external-link" label="Details"></p-button>
+            <p-button  (click)="showMaximizableDialog(book)"  icon="pi pi-external-link" label="Details"></p-button>
           </td>
         </tr>
       </ng-template>
