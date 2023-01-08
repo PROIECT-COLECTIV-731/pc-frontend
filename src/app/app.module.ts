@@ -15,7 +15,6 @@ import {BookDetailsComponent} from "./components/menu/book-details/book-details.
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CommonModule} from "@angular/common";
-import {DialogService, DynamicDialogModule} from "primeng/dynamicdialog";
 import {HttpClientModule} from "@angular/common/http";
 import {PasswordModule} from "primeng/password";
 import {InputTextModule} from "primeng/inputtext";
@@ -36,13 +35,36 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {MatChipsModule} from "@angular/material/chips";
+import {Routes} from "@angular/router";
+import {BookListComponent} from "./books/components/book-list/book-list.component";
+import {CalendarModule} from "primeng/calendar";
+import {SliderModule} from "primeng/slider";
+import {DialogModule} from "primeng/dialog";
+import {MultiSelectModule} from "primeng/multiselect";
+import {ContextMenuModule} from "primeng/contextmenu";
+import {DropdownModule} from "primeng/dropdown";
+import {ToastModule} from "primeng/toast";
+import {ProgressBarModule} from "primeng/progressbar";
+import {BooksModule} from "./books/books.module";
+import {BookComponent} from "./books/components/book/book.component";
+import {BookService} from "./books/service/book.service";
+import {MessageService} from "primeng/api";
+import {DialogService, DynamicDialogModule} from "primeng/dynamicdialog";
+import { PopupComponent } from './popup/popup.component';
 
+const routes: Routes = [
+  {path: 'books',
+    loadChildren: () => import('./books/books.module').then(m => m.BooksModule)},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    PopupComponent,
     CategoryComponent,
     DomainComponent,
     PublisherComponent,
@@ -61,6 +83,8 @@ import {MatChipsModule} from "@angular/material/chips";
     CommonModule,
     DynamicDialogModule,
 
+    BooksModule,
+    RouterModule.forRoot(routes),
     HttpClientModule,
     InputTextModule,
     PasswordModule,
@@ -72,14 +96,28 @@ import {MatChipsModule} from "@angular/material/chips";
     RippleModule,
     PaginatorModule,
     AppRoutingModule,
-
     FormsModule,
     MatInputModule,
     MatAutocompleteModule,
     MatChipsModule,
     MatFormFieldModule,
-
-    MatDialogModule
+    MatDialogModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    TableModule,
+    CalendarModule,
+    SliderModule,
+    DialogModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    DropdownModule,
+    ButtonModule,
+    ToastModule,
+    InputTextModule,
+    ProgressBarModule,
+    HttpClientModule,
+    FormsModule,
+    DynamicDialogModule,
   ],
   exports: [
     RouterModule
@@ -91,9 +129,11 @@ import {MatChipsModule} from "@angular/material/chips";
     { provide: MatDialogRef, useValue: {} },
     CategoryService,
     DomainService,
-    PublisherService
+    PublisherService,
+    BookService,DialogService, MessageService, PopupComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PopupComponent],
 })
 export class AppModule {
 }
