@@ -1,4 +1,6 @@
-
+h3{
+  text-decoration-style: solid;
+}
 .dialog-footer {
   border-top: 0;
   background: white;

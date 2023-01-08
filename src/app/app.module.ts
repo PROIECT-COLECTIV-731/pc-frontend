@@ -75,7 +75,7 @@ const routes: Routes = [
     StudentBookTableComponent,
     BookTableComponent,
   LinkViewerComponent,
-  BookDetailsComponent
+  BookDetailsComponent,
   ],
   imports: [
     BrowserModule,

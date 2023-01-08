@@ -1,22 +1,22 @@
 <div>
   <div style="float:left;margin: 40px;">
-    <h5>Author</h5>
+    <h3>Author</h3>
     <p>{{book.author}}</p>
-    <h5>ISBN</h5>
+    <h3>ISBN</h3>
     <p>{{book.isbn}}</p>
-    <h5>Publication Year</h5>
+    <h3>Publication Year</h3>
     <p>{{book.publicationYear}}</p>
   </div>
 
   <div style="float: right;margin-top: 40px; margin-right: 300px">
-    <h5>Summary</h5>
+    <h3>Summary</h3>
     <p>{{book.summary}}</p>
-    <h5>Ranking</h5>
+    <h3>Ranking</h3>
     <p>{{book.ranking}}</p>
   </div>
   <div class="dialog-footer">
 
-    <p-button (click)="displayMaximizable=false" label="Modify" class="p-button-text"></p-button>
-    <p-button (click)="displayMaximizable=false" label="Lend"></p-button>
+    <p-button (click)="displayMaximizable=false" label="Modify" class="p-button-text" *ngIf="this.isAdmin"(click)="modifyBook()"></p-button>
+    <p-button (click)="displayMaximizable=false" label="Borrow" *ngIf="this.isStudent"(click)="borrowBook()"></p-button>
   </div>
 </div>

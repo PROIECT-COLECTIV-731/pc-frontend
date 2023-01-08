@@ -14,6 +14,7 @@ export interface Book {
   categories: string[],
   summary: string,
   ranking: number,
+  contentLink: string,
 
 
 }
