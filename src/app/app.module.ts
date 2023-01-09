@@ -40,6 +40,7 @@ import { DomainService } from './components/domain/service/domain.service';
 import { PublisherService } from './components/publisher/service/publisher.service';
 import { BookDetailsComponent } from './components/menu/book-details/book-details.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     BrowserAnimationsModule,
     CommonModule,
     DynamicDialogModule,
+    MultiSelectModule,
 
     HttpClientModule,
     InputTextModule,
@@ -75,6 +77,8 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     RippleModule,
     PaginatorModule,
     AppRoutingModule,
+    
+
 
   ],
   exports: [

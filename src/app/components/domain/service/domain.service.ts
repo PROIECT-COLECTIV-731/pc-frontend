@@ -17,4 +17,19 @@ export class DomainService {
       return 'error'
     }
   }
+  public async getDomains(): Promise<String[]> {
+    try {
+      var d: String[];
+      d=[];
+      var req = await this.backend.get("http://localhost:8080/domain/domains", { "name": name }).toPromise();
+      for (var i in req) {
+        d.push(req[i]["name"])
+      }
+
+      return d;
+    }
+    catch (Exception) {
+      return [];
+    }
+  }
 }

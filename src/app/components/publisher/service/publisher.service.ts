@@ -17,4 +17,20 @@ export class PublisherService {
       return 'error'
     }
   }
+
+  public async getPublisher(): Promise<String[]> {
+    try {
+      var p: String[];
+      p=[];
+      var req = await this.backend.get("http://localhost:8080/publisher/publishers", { "name": name }).toPromise();
+      for (var i in req) {
+        p.push(req[i]["name"])
+      }
+
+      return p;
+    }
+    catch (Exception) {
+      return [];
+    }
+  }
 }

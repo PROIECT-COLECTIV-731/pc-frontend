@@ -3,22 +3,34 @@
 <span class="p-float-label">
     <input id="float-input" type="text" pInputText [(ngModel)]="author">
     <label for="float-input">Author</label>
-    <h4>{{author}}</h4>
 </span>
+<br> 
+<br> 
 <span class="p-float-label">
     <input id="float-input" type="text" pInputText [(ngModel)]="title">
     <label for="float-input">Title</label>
-    <h4>{{title}}</h4>
 </span>
+<br> 
+<br> 
+
 <span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="year">
+    <input id="float-input" type="text" pInputText [(ngModel)]="year" (input)="inputValidator($event)">
     <label for="float-input">Publication Year</label>
-    <h4>{{year}}</h4>
 </span>
+<p><small> *between 1900 and 2023</small></p>
+<br> 
+<br> 
+
 <span class="p-float-label">
     <input id="float-input" type="text" pInputText [(ngModel)]="isbn">
     <label for="float-input">ISBN</label>
-    <h4>{{isbn}}</h4>
+</span>
+<br> 
+<br> 
+
+<span class="p-float-label">
+    <input id="float-input" type="text" pInputText [(ngModel)]="link">
+    <label for="float-input">Content Link</label>
 </span>
 <h5>Domain</h5>
 <p-dropdown [options]="domains!" [(ngModel)]="selectedDomain" placeholder="Select domain"
@@ -27,43 +39,18 @@
 <p-dropdown [options]="publishers!" [(ngModel)]="selectedPublisher" placeholder="Select publisher" 
     [showClear]="true"></p-dropdown>
 <h5>Category</h5>
-<p-dropdown [options]="categories!" [(ngModel)]="selectedCategory" placeholder="Select category"
-    [showClear]="true"></p-dropdown>
-<br>
+<p-multiSelect [options]="categories!" [(ngModel)]="selectedCategory" defaultLabel="Select a Category" display="chip"></p-multiSelect>
+<br> 
 <br> 
 <br> 
 <span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="summary">
+    <textarea id="float-input" rows="5" cols="30" pInputTextarea [(ngModel)]="summary" style = "color: black"></textarea>
     <label for="float-input">Summary</label>
-    <h4>{{summary}}</h4>
 </span>
-<h5>Ranking</h5>
-<p-dropdown [options]="ranking!" [(ngModel)]="selectedRanking" placeholder="Select Ranking" [showClear]="true">
-</p-dropdown>
-<br>
 <br />
 <button pButton pRipple type="button" label="Add Book" styleClass="p-button-sm"
-    (click)="addBook(author!,title!,year!,isbn!, selectedDomain!, selectedPublisher!,selectedCategory!,summary!,selectedRanking!)"></button>
+    (click)="addBook(author!,title!,year!,isbn!, selectedDomain!, selectedPublisher!,selectedCategory!,summary!,link!)"></button>
 <p style="color: red;">{{error!=undefined?error:''}}</p>
 <p style="color: green;">{{success!=undefined?success:''}}</p>
 <br>
 <br>
-<!-- <br>
-<span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="publisher"> 
-    <label for="float-input">Publisher</label>
-    <h1>{{publisher}}</h1>
-</span>
-<br>
-<br>
-<span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="publisher"> 
-    <label for="float-input">Publisher</label>
-    <h1>{{publisher}}</h1>
-</span>
-<br> -->
-
-
-<!-- <button pButton pRipple type="button" label="Add Category"  styleClass="p-button-sm" (click)="addCategory(title)"></button>
-<p style="color: red;">{{error!=undefined?error:''}}</p>
-<p style="color: green;">{{success!=undefined?success:''}}</p> -->
