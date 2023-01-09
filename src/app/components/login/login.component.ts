@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit {
           password: valuesFromForm.password!,
     };
 
-
+    if (!userCredentials.email || !userCredentials.password)
+      return;
    
 
     // @ts-ignore
