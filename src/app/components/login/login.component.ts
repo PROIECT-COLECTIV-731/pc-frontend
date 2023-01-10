@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
     const valuesFromForm = this._loginFormGroup.value;
     const userCredentials: { email: any, password: any; } = {
           email: valuesFromForm.email!,
-          password: valuesFromForm.password!,
+          password: CryptoJS.MD5(valuesFromForm.password!).toString(),
     };
 
     if (!userCredentials.email || !userCredentials.password)

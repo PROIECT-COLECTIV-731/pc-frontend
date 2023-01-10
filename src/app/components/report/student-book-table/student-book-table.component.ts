@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA} from '@angular/material/legacy-dialog';
 import {Student} from "../../../shared/data-type/Student";
 import {Book} from "../../../shared/data-type/Book";
 import {StudentBookService} from "../../../services/student-book.service";

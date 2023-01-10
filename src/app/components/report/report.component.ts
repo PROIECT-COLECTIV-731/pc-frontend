@@ -5,7 +5,7 @@ import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
 import {StudentService} from "../../services/student.service";
 import {Student} from "../../shared/data-type/Student";
 import {StudentBookTableComponent} from "./student-book-table/student-book-table.component";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog as MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'report',

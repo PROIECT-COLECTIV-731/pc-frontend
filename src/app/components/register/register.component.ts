@@ -1,10 +1,10 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {UserCredentials} from "../../shared/data-type/UserCredentials";
 import {ConfirmedValidator} from "./confirmedValidator";
 import {Router} from "@angular/router";
-import {LoginUserCredentials} from "../../shared/data-type/LoginUserCredentials";
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-register',
@@ -28,13 +28,13 @@ export class RegisterComponent implements OnInit {
   })
 
   get email() {
-    return this._registerFormGroup.get('email')
+    return this._registerFormGroup.get('email')!
   }
   get password() {
-    return this._registerFormGroup.get('password')
+    return this._registerFormGroup.get('password')!
   }
   get confirmPassword() {
-    return this._registerFormGroup.get('confirmPassword')
+    return this._registerFormGroup.get('confirmPassword')!
   }
 
   constructor(private userService: UserService, private formBuilder: UntypedFormBuilder, private router : Router) {
@@ -51,8 +51,8 @@ export class RegisterComponent implements OnInit {
     const valuesFromForm = this._registerFormGroup.value;
     const userCredentials: UserCredentials = {
       email: valuesFromForm.email!,
-      password: valuesFromForm.password!,
-      confirmPassword: valuesFromForm.confirmPassword
+      password: CryptoJS.MD5(valuesFromForm.password!).toString(),
+      confirmPassword: CryptoJS.MD5(valuesFromForm.confirmPassword).toString()
     };
 
 
