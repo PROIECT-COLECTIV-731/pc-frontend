@@ -31,7 +31,6 @@ export class AddBookComponent implements OnInit {
     categoryService.getCategories().then((value) => this.categories = value)
     domainService.getDomains().then((value) => this.domains = value)
     publisherSevice.getPublisher().then((value) => this.publishers = value)
-
   } 
   public inputValidator(event: any) {
     //console.log(event.target.value);
@@ -46,7 +45,6 @@ export class AddBookComponent implements OnInit {
 
   async addBook(author: String, title: String, year: number, isbn: number, domain: String, publisher: String, category: String[], summary: String, link: String) {
     if (author && title && (year && year>=1900&&year<=2023) && isbn && domain && publisher && link) {
-      console.log("summary"+summary);
       var response = await this.service.addBook(author, title, year, isbn, domain, publisher, category, summary, link);
       if (response == "error") {
         this.error = "Error! This book was already added!"
