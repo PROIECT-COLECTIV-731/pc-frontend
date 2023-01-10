@@ -45,8 +45,8 @@ export class AddBookComponent implements OnInit {
   }
 
   async addBook(author: String, title: String, year: number, isbn: number, domain: String, publisher: String, category: String[], summary: String, link: String) {
-    console.log(category);
-    if (author && title && (year && year>=1900&&year<=2023) && isbn && domain && publisher && category && link) {
+    if (author && title && (year && year>=1900&&year<=2023) && isbn && domain && publisher && link) {
+      console.log("summary"+summary);
       var response = await this.service.addBook(author, title, year, isbn, domain, publisher, category, summary, link);
       if (response == "error") {
         this.error = "Error! This book was already added!"

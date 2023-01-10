@@ -22,7 +22,7 @@
 <br> 
 
 <span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="isbn">
+    <input id="float-input" type="text"  pInputText [(ngModel)]="isbn"(input)="inputValidator($event)">
     <label for="float-input">ISBN</label>
 </span>
 <br> 
