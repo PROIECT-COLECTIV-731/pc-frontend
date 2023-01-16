@@ -23,6 +23,16 @@ export class PopupComponent implements OnInit {
 
   ngOnInit(): void {
     this.book = this.config.data;
+    if (this.book.author === null) {
+      this.book.author = "--";
+    }
+    if (this.book.title === null) {
+      this.book.title = "--";
+    }
+    if (this.book.summary === null) {
+      this.book.summary = "--";
+    }
+
     if (localStorage.getItem('email') != null){
       let adminRegEx = new RegExp('^[a-zA-Z|\.]*@ubbcluj.ro')
       let studentRegEx = new RegExp('^[a-zA-Z|\.]*@stud.ubbcluj.ro')
